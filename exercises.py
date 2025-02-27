@@ -1,3 +1,4 @@
+
 # Exercise 0: Example
 #
 # This is a practice exercise to help you understand how to write code "inside" a provided Python function.
@@ -140,10 +141,11 @@ def weather_advice():
         return print("Wear light clothing.")
     
     
-    
+
 
 # Call the function
 weather_advice()
+
 
 # Exercise 5: What's the Season?
 #
@@ -166,6 +168,59 @@ weather_advice()
 
 def determine_season():
     # Your control flow logic goes here
-
+    inputMonth = input('month?')
+    inputDay = int(input('day?'))
+    months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
+    if ((inputMonth == months[11] or inputMonth== months[1] or inputMonth == months[2]) and inputDay <=19) or (inputMonth == months[11] and inputDay >19):
+       return  print( 'Winter')
+    elif (inputMonth == months[2] or inputMonth== months[3] or inputMonth == months[4] or inputMonth == months[5]) and inputDay <=20:
+        return print( 'Spring')
+    elif (inputMonth == months[6] or inputMonth== months[7] or inputMonth == months[8]) and inputDay <=21:
+        return print('Summer')
+    elif ((inputMonth == months[8] or inputMonth== months[9] or inputMonth == months[10] or inputMonth == months[11]) and inputDay <=20) or (inputMonth == months[8] and inputDay > 20):
+        return print('Fall')
+        
+    
+        
 # Call the function
 determine_season()
+
+
+# Exercise 6: Number Guessing Game
+#
+# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+#
+# Requirements:
+# - Set a fixed number as the target for guessing (e.g., 42).
+# - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# - Allow the user to guess up to five times.
+# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+#   - "Guess is too low" or "Guess is too high."
+#   - "Last chance!" when they are on their fifth guess.
+# - Print "Congratulations, you guessed correctly!" if they guess the number.
+# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+#
+# Hints:
+# - Use a for loop with a range to limit guesses to five.
+# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+
+def guess_number():
+    # Your control flow logic goes here
+    number = 7
+    attempt = 1
+    guess = 0
+    while attempt < 5 and guess != number:
+        guess = int(input('pick a number between 1 & 100'))
+        if guess < number:
+            print('too low!')
+        elif guess > number:
+            print('too high!')
+        attempt += 1
+    if attempt > 5 and guess != number:
+        print('you lost! it was', number)
+    elif guess == number:
+        print('you win!')
+
+# Call the function
+guess_number()
+
